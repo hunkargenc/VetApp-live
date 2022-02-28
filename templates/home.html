@@ -1,0 +1,40 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+
+{% block title %}Ana Sayfa{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Merhaba</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{ user.username }}!</h6>
+          <p class="card-text">Yönetim Paneline gitmek için >> <a href="/admin" class="card-link">tıklayınız.</a></p>
+          <a href="{% url 'logout' %}" class="card-link">Çıkış Yap</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+
+{% else %}
+
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Giriş Yapmadınız!</h5>
+          <p class="card-text">Giriş yapmak için >> <a href="{% url 'login' %}" class="card-link">tıklayınız.</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+{% endif %}
+
+{% endblock %}
