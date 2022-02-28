@@ -1,1 +1,1 @@
-web:gunicorn vetproject.wsgi
+web: gunicorn vetproject.wsgi
